@@ -70,7 +70,7 @@ const threadRunResponse = ref(null);
 const threadMessages = ref(null);
 const runStatus = ref(null);
 
-const openAiKey=ref('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')
+const openAiKey=ref('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')
 
 // Methods
 const sendMessage = async () => {
@@ -352,7 +352,7 @@ const fetchThreadMessages = async () => {
 
 // Lifecycle hook
 onMounted(() => {
-  //callOpenAI();
+  callOpenAI();
   createThread();
 });
 </script>
