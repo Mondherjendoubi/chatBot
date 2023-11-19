@@ -70,6 +70,8 @@ const threadRunResponse = ref(null);
 const threadMessages = ref(null);
 const runStatus = ref(null);
 
+const openAiKey=ref('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')
+
 // Methods
 const sendMessage = async () => {
   //createThread();
@@ -102,7 +104,7 @@ const callOpenAI = async () => {
       "https://api.openai.com/v1/assistants/asst_uaeDkgQdkRYmbiptDia6cISw";
     const headers = {
       "Content-Type": "application/json",
-      Authorization: `Bearer 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`, // asst_uaeDkgQdkRYmbiptDia6cISw
+      Authorization: `Bearer ${openAiKey.value}`, // asst_uaeDkgQdkRYmbiptDia6cISw
       "OpenAI-Beta": "assistants=v1",
     };
 
@@ -134,7 +136,7 @@ const createThread = async () => {
     const url = "https://api.openai.com/v1/threads";
     const headers = {
       "Content-Type": "application/json",
-      Authorization: `Bearer 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`, //"thread_6AKZbsvG9B744ZDhRVpmJWlL"
+      Authorization: `Bearer ${openAiKey.value}`, //"thread_6AKZbsvG9B744ZDhRVpmJWlL"
       "OpenAI-Beta": "assistants=v1",
     };
 
@@ -177,7 +179,7 @@ const fetchRunStatus = async () => {
     const runId = threadRunResponse.value.id; // Replace with your actual run ID
     const url = `https://api.openai.com/v1/threads/${threadId}/runs/${runId}`;
     const headers = {
-      Authorization: `Bearer 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`,
+      Authorization: `Bearer ${openAiKey.value}`,
       "OpenAI-Beta": "assistants=v1",
     };
 
@@ -209,7 +211,7 @@ const createThreadRun = async () => {
     const url = `https://api.openai.com/v1/threads/${threadId}/runs`;
     const headers = {
       "Content-Type": "application/json",
-      Authorization: `Bearer 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`, //"thread_6AKZbsvG9B744ZDhRVpmJWlL"
+      Authorization: `Bearer ${openAiKey.value}`, //"thread_6AKZbsvG9B744ZDhRVpmJWlL"
       "OpenAI-Beta": "assistants=v1",
     };
 
@@ -255,7 +257,7 @@ const sendMessageToThread = async (msg) => {
     const url = `https://api.openai.com/v1/threads/${threadId}/messages`;
     const headers = {
       "Content-Type": "application/json",
-      Authorization: `Bearer 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`,
+      Authorization: `Bearer ${openAiKey.value}`,
       "OpenAI-Beta": "assistants=v1",
     };
 
@@ -291,7 +293,7 @@ const retrieveMessage = async () => {
     const url = `https://api.openai.com/v1/threads/${threadId}/messages/${messageId}`;
     const headers = {
       "Content-Type": "application/json",
-      Authorization: `Bearer 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`, //"thread_6AKZbsvG9B744ZDhRVpmJWlL"
+      Authorization: `Bearer ${openAiKey.value}`, //"thread_6AKZbsvG9B744ZDhRVpmJWlL"
       "OpenAI-Beta": "assistants=v1",
     };
 
@@ -319,7 +321,7 @@ const fetchThreadMessages = async () => {
     const url = `https://api.openai.com/v1/threads/${threadId}/messages`;
     const headers = {
       "Content-Type": "application/json",
-      Authorization: `Bearer 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`, //"thread_6AKZbsvG9B744ZDhRVpmJWlL"
+      Authorization: `Bearer ${openAiKey.value}`, //"thread_6AKZbsvG9B744ZDhRVpmJWlL"
       "OpenAI-Beta": "assistants=v1",
     };
 
